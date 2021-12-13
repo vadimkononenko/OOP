@@ -34,6 +34,7 @@ void LineShape::Show(HDC hdc)
 void RectangleShape::Show(HDC hdc)
 {
 	HPEN hPen, hPenOld;
+
 	hPen = CreatePen(PS_SOLID, 1, black);
 	hPenOld = (HPEN)SelectObject(hdc, hPen);
 
@@ -47,11 +48,13 @@ void EllipseShape::Show(HDC hdc)
 {
 	HPEN hPen, hPenOld;
 	HBRUSH hBrush, hBrushOld;
+
 	hPen = CreatePen(PS_SOLID, 1, black);
 	hPenOld = (HPEN)SelectObject(hdc, hPen);
 
 	hBrush = CreateSolidBrush(NULL_BRUSH);
 	hBrushOld = (HBRUSH)SelectObject(hdc, GetStockObject(NULL_BRUSH));
+
 	Ellipse(hdc, xs1, ys1, xs2, ys2);
 	SelectObject(hdc, hBrushOld);
 	DeleteObject(hBrush);
