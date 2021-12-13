@@ -1,0 +1,8 @@
+﻿  Lab3.cpp
+  pch.cpp
+  shape.cpp
+  shape_editor.cpp
+  toolbar.cpp
+C:\Users\konon\source\repos\OOP\Lab3\toolbar.cpp(11,32): error C2664: "LPWSTR lstrcpyW(LPWSTR,LPCWSTR)": невозможно преобразовать аргумент 2 из "LPCSTR" в "LPCWSTR"
+C:\Users\konon\source\repos\OOP\Lab3\toolbar.cpp(11,28): message : Типы, на которые указывают указатели, не связаны; для преобразования требуется reinterpret_cast, приведение в стиле С или приведение в стиле функции
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\winbase.h(2835,1): message : см. объявление "lstrcpyW"

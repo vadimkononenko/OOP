@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Editor">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAABAAAAAAAAAABAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>editor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shape">
+    <Position X="16.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAEAGAAAAAAAAAAAAA=</HashCode>
+      <FileName>shape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PointShape">
+    <Position X="17.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>shape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LineShape">
+    <Position X="19.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>shape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RectangleShape">
+    <Position X="13" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>shape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EllipseShape">
+    <Position X="15.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>shape.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShapeEditor">
+    <Position X="7.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAAAAAAAAAABAAAAAAAAAAxAQAACAAQAAAAAAAAA=</HashCode>
+      <FileName>shape_editor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShapeObjectsEditor">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASgAAAAAAAAAABAAAAAAAAAABAQAAAyQAgAAAAAAEA=</HashCode>
+      <FileName>shape_editor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PointEditor">
+    <Position X="4" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>shape_editor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LineEditor">
+    <Position X="6.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>shape_editor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RectangleEditor">
+    <Position X="8.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>shape_editor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EllipseEditor">
+    <Position X="10.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAABAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>shape_editor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Toolbar">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAEAAEAAAAAAAACAACABAAAAEAAAgAAAAAA=</HashCode>
+      <FileName>toolbar.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

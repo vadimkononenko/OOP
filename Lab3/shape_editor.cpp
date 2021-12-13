@@ -4,7 +4,7 @@
 #include "shape.h"
 
 
-const int Size_Of_Array = 114;
+const int Size_Of_Array = 115;
 Shape** pcshape = new Shape * [Size_Of_Array];
 int createdobj = 0;
 bool isPressed;
@@ -27,38 +27,46 @@ ShapeObjectsEditor::~ShapeObjectsEditor()
 
 void ShapeObjectsEditor::StartPointEditor(HWND hWnd)
 {
+	static const LPCSTR POINT_NAME = "Point";
 	if (pse)
 	{
 		delete pse;
 	}
 	pse = new PointEditor;
+	SetWindowTextA(hWnd, POINT_NAME);
 }
 
 void ShapeObjectsEditor::StartLineEditor(HWND hWnd)
 {
+	static const LPCSTR LINE_NAME = "Line";
 	if (pse)
 	{
 		delete pse;
 	}
 	pse = new LineEditor;
+	SetWindowTextA(hWnd, LINE_NAME);
 }
 
 void ShapeObjectsEditor::StartRectangleEditor(HWND hWnd)
 {
+	static const LPCSTR RECTANGLE_NAME = "Rectangle";
 	if (pse)
 	{
 		delete pse;
 	}
 	pse = new RectangleEditor;
+	SetWindowTextA(hWnd, RECTANGLE_NAME);
 }
 
 void ShapeObjectsEditor::StartEllipseEditor(HWND hWnd)
 {
+	static const LPCSTR ELLIPSE_NAME = "Ellipse";
 	if (pse)
 	{
 		delete pse;
 	}
 	pse = new EllipseEditor;
+	SetWindowTextA(hWnd, ELLIPSE_NAME);
 }
 
 void ShapeObjectsEditor::OnLMBdown(HWND hWnd)
@@ -91,16 +99,9 @@ void ShapeObjectsEditor::OnPaint(HWND hWnd)
 	draw->OnPaint(hWnd);
 }
 
-void ShapeObjectsEditor::OnInitMenuPopup(HWND hWnd, WPARAM wParams) {
-	if (pse)
-		pse->OnInitMenuPopup(hWnd, wParams);
-}
-
 //ShapeEditor
 
 void ShapeEditor::OnMouseMove(HWND hWnd) {};
-
-void ShapeEditor::OnInitMenuPopup(HWND hWnd, WPARAM wParams) {};
 
 void ShapeEditor::OnLMBdown(HWND hWnd)
 {
@@ -150,18 +151,6 @@ void PointEditor::OnLMBup(HWND hWnd)
 	InvalidateRect(hWnd, NULL, TRUE);
 }
 
-void PointEditor::OnInitMenuPopup(HWND hWnd, WPARAM wParams) {
-	HMENU hMenu, hSubMenu;
-	hMenu = GetMenu(hWnd);
-	hSubMenu = GetSubMenu(hMenu, 1);
-	if ((HMENU)wParams == hSubMenu) {
-		CheckMenuItem(hSubMenu, IDM_POINT, MF_CHECKED);
-		CheckMenuItem(hSubMenu, IDM_LINE, MF_UNCHECKED);
-		CheckMenuItem(hSubMenu, IDM_RECTANGLE, MF_UNCHECKED);
-		CheckMenuItem(hSubMenu, IDM_ELLIPSE, MF_UNCHECKED);
-	}
-}
-
 //LineEditor
 
 void LineEditor::OnLMBup(HWND hWnd)
@@ -174,25 +163,13 @@ void LineEditor::OnLMBup(HWND hWnd)
 	InvalidateRect(hWnd, NULL, TRUE);
 }
 
-void LineEditor::OnInitMenuPopup(HWND hWnd, WPARAM wParams) {
-	HMENU hMenu, hSubMenu;
-	hMenu = GetMenu(hWnd);
-	hSubMenu = GetSubMenu(hMenu, 1);
-	if ((HMENU)wParams == hSubMenu) {
-		CheckMenuItem(hSubMenu, IDM_POINT, MF_UNCHECKED);
-		CheckMenuItem(hSubMenu, IDM_LINE, MF_CHECKED);
-		CheckMenuItem(hSubMenu, IDM_RECTANGLE, MF_UNCHECKED);
-		CheckMenuItem(hSubMenu, IDM_ELLIPSE, MF_UNCHECKED);
-	}
-}
-
 void LineEditor::OnMouseMove(HWND hWnd)
 {
 	POINT pt;
 	HPEN hPen, hPenOld;
 	HDC hdc = GetDC(hWnd);
 	SetROP2(hdc, R2_NOTXORPEN);
-	hPen = CreatePen(PS_SOLID, 1, blue);
+	hPen = CreatePen(PS_SOLID, 1, black);
 	hPenOld = (HPEN)SelectObject(hdc, hPen);
 	MoveToEx(hdc, x1, y1, NULL);
 	LineTo(hdc, x2, y2);
@@ -213,7 +190,7 @@ void RectangleEditor::OnLMBup(HWND hWnd)
 {
 	__super::OnLMBup(hWnd);
 	RectangleShape* Rectangle = new RectangleShape;
-	Rectangle->Set(x1, y1, x2, y2);
+	Rectangle->Set(2 * x1 - x2, 2 * y1 - y2, x2, y2);
 	pcshape[createdobj] = Rectangle;
 	createdobj++;
 	InvalidateRect(hWnd, NULL, TRUE);
@@ -223,32 +200,19 @@ void RectangleEditor::OnMouseMove(HWND hWnd)
 {
 	POINT pt;
 	HPEN hPen, hPenOld;
-
 	HDC hdc = GetDC(hWnd);
 	SetROP2(hdc, R2_NOTXORPEN);
-	hPen = CreatePen(PS_SOLID, 1, blue);
+	hPen = CreatePen(PS_SOLID, 1, black);
 	hPenOld = (HPEN)SelectObject(hdc, hPen);
-	Rectangle(hdc, x1, y1, x2, y2);
+	Rectangle(hdc, 2 * x1 - x2, 2 * y1 - y2, x2, y2);
 	GetCursorPos(&pt);
 	ScreenToClient(hWnd, &pt);
 	x2 = pt.x;
 	y2 = pt.y;
-	Rectangle(hdc, x1, y1, x2, y2);
+	Rectangle(hdc, 2 * x1 - x2, 2 * y1 - y2, x2, y2);
 	SelectObject(hdc, hPenOld);
 	DeleteObject(hPen);
 	ReleaseDC(hWnd, hdc);
-}
-
-void RectangleEditor::OnInitMenuPopup(HWND hWnd, WPARAM wParams) {
-	HMENU hMenu, hSubMenu;
-	hMenu = GetMenu(hWnd);
-	hSubMenu = GetSubMenu(hMenu, 1);
-	if ((HMENU)wParams == hSubMenu) {
-		CheckMenuItem(hSubMenu, IDM_POINT, MF_UNCHECKED);
-		CheckMenuItem(hSubMenu, IDM_LINE, MF_UNCHECKED);
-		CheckMenuItem(hSubMenu, IDM_RECTANGLE, MF_CHECKED);
-		CheckMenuItem(hSubMenu, IDM_ELLIPSE, MF_UNCHECKED);
-	}
 }
 
 //EllipseEditor
@@ -269,27 +233,15 @@ void EllipseEditor::OnMouseMove(HWND hWnd)
 	HPEN hPen, hPenOld;
 	HDC hdc = GetDC(hWnd);
 	SetROP2(hdc, R2_NOTXORPEN);
-	hPen = CreatePen(PS_SOLID, 1, blue);
+	hPen = CreatePen(PS_SOLID, 1, black);
 	hPenOld = (HPEN)SelectObject(hdc, hPen);
-	Ellipse(hdc, 2 * x1 - x2, 2 * y1 - y2, x2, y2);
+	Ellipse(hdc, x1, y1, x2, y2);
 	GetCursorPos(&pt);
 	ScreenToClient(hWnd, &pt);
 	x2 = pt.x;
 	y2 = pt.y;
-	Ellipse(hdc, 2 * x1 - x2, 2 * y1 - y2, x2, y2);
+	Ellipse(hdc, x1, y1, x2, y2);
 	SelectObject(hdc, hPenOld);
 	DeleteObject(hPen);
 	ReleaseDC(hWnd, hdc);
-}
-
-void EllipseEditor::OnInitMenuPopup(HWND hWnd, WPARAM wParams) {
-	HMENU hMenu, hSubMenu;
-	hMenu = GetMenu(hWnd);
-	hSubMenu = GetSubMenu(hMenu, 1);
-	if ((HMENU)wParams == hSubMenu) {
-		CheckMenuItem(hSubMenu, IDM_POINT, MF_UNCHECKED);
-		CheckMenuItem(hSubMenu, IDM_LINE, MF_UNCHECKED);
-		CheckMenuItem(hSubMenu, IDM_RECTANGLE, MF_UNCHECKED);
-		CheckMenuItem(hSubMenu, IDM_ELLIPSE, MF_CHECKED);
-	}
 }

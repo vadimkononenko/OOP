@@ -77,7 +77,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
     hInst = hInstance;
 
-    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW | WS_CLIPCHILDREN,
+    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
     if (!hWnd)
@@ -131,9 +131,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     case WM_MOUSEMOVE:
         editorShape.OnMouseMove(hWnd);
-        break;
-    case WM_INITMENUPOPUP:
-        editorShape.OnInitMenuPopup(hWnd, wParam);
         break;
     case WM_PAINT:
         editorShape.OnPaint(hWnd);

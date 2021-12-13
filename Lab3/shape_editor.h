@@ -13,7 +13,6 @@ public:
 	void OnLMBup(HWND);
 	void OnMouseMove(HWND);
 	void OnPaint(HWND);
-	virtual void OnInitMenuPopup(HWND, WPARAM);
 };
 
 class ShapeObjectsEditor
@@ -31,14 +30,12 @@ public:
 	void OnLMBup(HWND);
 	void OnMouseMove(HWND);
 	void OnPaint(HWND);
-	void OnInitMenuPopup(HWND, WPARAM);
 };
 
 class PointEditor : public ShapeEditor
 {
 public:
 	void OnLMBup(HWND);
-	void OnInitMenuPopup(HWND, WPARAM);
 };
 
 class LineEditor : public ShapeEditor
@@ -46,7 +43,6 @@ class LineEditor : public ShapeEditor
 public:
 	void OnLMBup(HWND);
 	void OnMouseMove(HWND);
-	void OnInitMenuPopup(HWND, WPARAM);
 };
 
 class RectangleEditor : public ShapeEditor
@@ -54,7 +50,6 @@ class RectangleEditor : public ShapeEditor
 public:
 	void OnLMBup(HWND);
 	void OnMouseMove(HWND);
-	void OnInitMenuPopup(HWND, WPARAM);
 };
 
 class EllipseEditor : public ShapeEditor
@@ -62,5 +57,4 @@ class EllipseEditor : public ShapeEditor
 public:
 	void OnLMBup(HWND);
 	void OnMouseMove(HWND);
-	void OnInitMenuPopup(HWND, WPARAM);
 };
