@@ -69,19 +69,6 @@ Shape* LineShape::Duplicate()
 
 void RectangleShape::Show(HDC hdc)
 {
-	/*HPEN hPen, hPenOld;
-	HBRUSH hBrush, hBrushOld;
-
-	hPen = CreatePen(PS_SOLID, 1, black);
-	hPenOld = (HPEN)SelectObject(hdc, hPen);
-	
-
-	Rectangle(hdc, 2 * xs1 - xs2, 2 * ys1 - ys2, xs2, ys2);
-
-	
-	SelectObject(hdc, hPenOld);
-	DeleteObject(hPen);*/
-
 	HPEN hPen, hPenOld;
 
 	hPen = CreatePen(PS_SOLID, 1, black);
@@ -101,22 +88,10 @@ void RectangleShape::Trail(HDC hdc)
 	hPenOld = (HPEN)SelectObject(hdc, hPen);
 
 	MoveToEx(hdc, xs1, ys1, NULL);
-
 	Rectangle(hdc, 2 * xs1 - xs2, 2 * ys1 - ys2, xs2, ys2);
 
 	SelectObject(hdc, hPenOld);
 	DeleteObject(hPen);
-
-	/*HPEN hPen, hPenOld;
-	hPen = CreatePen(PS_DOT, 1, black);
-	hPenOld = (HPEN)SelectObject(hdc, hPen);
-	MoveToEx(hdc, xs1, ys1, NULL);
-	LineTo(hdc, xs1, ys2);
-	LineTo(hdc, xs2, ys2);
-	LineTo(hdc, xs2, ys1);
-	LineTo(hdc, xs1, ys1);
-	SelectObject(hdc, hPenOld);
-	DeleteObject(hPen);*/
 }
 
 int RectangleShape::InitMenuPopup()
@@ -197,7 +172,7 @@ void LineOOShape::Trail(HDC hdc)
 	y1 = ys1;
 	x2 = xs2;
 	y2 = ys2;
-	LineShape::Set(x1, y1, x2, y2);
+	LineShape::Set(x1 - lineooMerge / 2, y1 - lineooMerge / 2, x2 - lineooMerge / 2, y2 - lineooMerge / 2);
 	LineShape::Trail(hdc);
 	EllipseShape::Set(x1, y1,
 		x1 - lineooMerge, y1 - lineooMerge);
