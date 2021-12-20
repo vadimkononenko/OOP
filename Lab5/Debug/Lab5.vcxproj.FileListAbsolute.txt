@@ -1,0 +1,3 @@
+C:\Users\Денис\Documents\GitHub\OOP-Labs\Lab5\Debug\Lab5.exe
+C:\Users\Денис\Documents\GitHub\OOP-Labs\Lab5\Debug\Lab5.pdb
+C:\Users\konon\source\repos\OOP\Lab5\Debug\Lab5.exe

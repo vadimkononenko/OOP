@@ -155,7 +155,8 @@ void LineOOShape::Show(HDC hdc)
 	y1 = ys1;
 	x2 = xs2;
 	y2 = ys2;
-	LineShape::Set(x1 - lineooMerge/2, y1 - lineooMerge/2, x2 - lineooMerge/2, y2 - lineooMerge/2);
+	LineShape::Set(x1 - lineooMerge/2, y1 - lineooMerge/2, 
+		x2 - lineooMerge/2, y2 - lineooMerge/2);
 	LineShape::Show(hdc);
 	EllipseShape::Set(x1, y1,
 		x1 - lineooMerge, y1 - lineooMerge);

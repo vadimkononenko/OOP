@@ -1,0 +1,3 @@
+Shape		x1	y1	x2	y2
+LineOO		199	147	316	243
+LineOO		527	242	324	379
