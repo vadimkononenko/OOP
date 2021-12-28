@@ -1,0 +1,11 @@
+﻿  pch.cpp
+  Object2.cpp
+C:\Users\Денис\Documents\GitHub\OOP-Labs\Lab6\Object2\Object2.cpp(136,19): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\Денис\Documents\GitHub\OOP-Labs\Lab6\Object2\Object2.cpp(238,23): warning C4244: return: преобразование "LRESULT" в "int", возможна потеря данных
+C:\Users\Денис\Documents\GitHub\OOP-Labs\Lab6\Object2\Object2.cpp(274,22): warning C4267: =: преобразование из "size_t" в "long"; возможна потеря данных
+  Создание кода
+  96 of 99 functions (97.0%) were compiled, the rest were copied from previous compilation.
+    2 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  Object2.vcxproj -> C:\Users\Денис\Documents\GitHub\OOP-Labs\Lab6\x64\Debug\Object2.exe

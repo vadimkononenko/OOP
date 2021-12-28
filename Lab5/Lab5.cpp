@@ -12,7 +12,7 @@ HINSTANCE hInst;
 WCHAR szTitle[MAX_LOADSTRING];
 WCHAR szWindowClass[MAX_LOADSTRING];
 
-//MyEditor& ED = ED.getInstance();
+// реализация Singleton
 MyEditor* ED = MyEditor::getInstance();
 MyEditor* MyEditor::p_instance = 0;
 MyEditor* MyEditor::getInstance() {
@@ -158,7 +158,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         ED->OnInitMenuPopup(hWnd, wParam);
         break;
     case WM_PAINT:
-        ED->OnPaint(hWnd, CurListSel-1);// -1 cuz first list line(element) is title
+        ED->OnPaint(hWnd, CurListSel-1); // -1 cuz first list line(element) is title
         break;
     case WM_COMMAND:
     {

@@ -1,0 +1,11 @@
+﻿  pch.cpp
+  Object3.cpp
+C:\Users\Денис\Documents\GitHub\OOP-Labs\Lab6\Object3\Object3.cpp(176,43): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Денис\Documents\GitHub\OOP-Labs\Lab6\Object3\Object3.cpp(249,41): warning C4267: =: преобразование из "size_t" в "long"; возможна потеря данных
+C:\Users\Денис\Documents\GitHub\OOP-Labs\Lab6\Object3\Object3.cpp(253,45): warning C4267: =: преобразование из "size_t" в "long"; возможна потеря данных
+  Создание кода
+  83 of 87 functions (95.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  Object3.vcxproj -> C:\Users\Денис\Documents\GitHub\OOP-Labs\Lab6\x64\Debug\Object3.exe
